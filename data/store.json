@@ -1,0 +1,251 @@
+{
+  "members": [
+    {
+      "id": "TV001",
+      "name": "Nguyễn An",
+      "tier": "Bạc"
+    },
+    {
+      "id": "TV002",
+      "name": "Trần Bình",
+      "tier": "Vàng"
+    },
+    {
+      "id": "TV003",
+      "name": "Lê Chi",
+      "tier": "Bạc"
+    },
+    {
+      "id": "TV004",
+      "name": "Phạm Duy",
+      "tier": "Thành viên"
+    },
+    {
+      "id": "TV005",
+      "name": "Võ Hà",
+      "tier": "Vàng"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "GD0001",
+      "member_id": "TV001",
+      "amount_vnd": 1250000,
+      "category": "Siêu thị",
+      "cashback_vnd": 12500,
+      "points": 125,
+      "status": "approved",
+      "refunded": false,
+      "created_at": "2026-10-10T08:30:00+00:00"
+    },
+    {
+      "id": "GD0002",
+      "member_id": "TV002",
+      "amount_vnd": 735000,
+      "category": "Ăn uống",
+      "cashback_vnd": 7350,
+      "points": 73,
+      "status": "approved",
+      "refunded": false,
+      "created_at": "2026-10-10T09:15:00+00:00"
+    },
+    {
+      "id": "GD0003",
+      "member_id": "TV003",
+      "amount_vnd": 4900000,
+      "category": "Du lịch",
+      "cashback_vnd": 49000,
+      "points": 490,
+      "status": "approved",
+      "refunded": false,
+      "created_at": "2026-10-10T10:00:00+00:00"
+    },
+    {
+      "id": "GD0004",
+      "member_id": "TV004",
+      "amount_vnd": 6250000,
+      "category": "Điện tử",
+      "cashback_vnd": 62500,
+      "points": 625,
+      "status": "approved",
+      "refunded": false,
+      "created_at": "2026-10-11T11:20:00+00:00"
+    },
+    {
+      "id": "GD0005",
+      "member_id": "TV005",
+      "amount_vnd": 2180000,
+      "category": "Siêu thị",
+      "cashback_vnd": 21800,
+      "points": 218,
+      "status": "approved",
+      "refunded": false,
+      "created_at": "2026-10-11T12:10:00+00:00"
+    },
+    {
+      "id": "GD0006",
+      "member_id": "TV001",
+      "amount_vnd": 500000,
+      "category": "Di chuyển",
+      "cashback_vnd": 5000,
+      "points": 50,
+      "status": "approved",
+      "refunded": false,
+      "created_at": "2026-10-12T07:45:00+00:00"
+    },
+    {
+      "id": "GD0007",
+      "member_id": "TV002",
+      "amount_vnd": 9900000,
+      "category": "Nội thất",
+      "cashback_vnd": 99000,
+      "points": 990,
+      "status": "approved",
+      "refunded": false,
+      "created_at": "2026-10-12T14:05:00+00:00"
+    },
+    {
+      "id": "GD0008",
+      "member_id": "TV003",
+      "amount_vnd": 1380000,
+      "category": "Nhà thuốc",
+      "cashback_vnd": 13800,
+      "points": 138,
+      "status": "approved",
+      "refunded": false,
+      "created_at": "2026-10-13T08:00:00+00:00"
+    },
+    {
+      "id": "GD0009",
+      "member_id": "TV005",
+      "amount_vnd": 850000,
+      "category": "Điện tử",
+      "cashback_vnd": 8500,
+      "points": 85,
+      "status": "approved",
+      "refunded": true,
+      "created_at": "2026-10-13T10:26:03+00:00"
+    },
+    {
+      "id": "GD0010",
+      "member_id": "TV001",
+      "amount_vnd": 750000,
+      "category": "Nhà thuốc",
+      "cashback_vnd": 7500,
+      "points": 75,
+      "status": "approved",
+      "refunded": false,
+      "created_at": "2026-10-13T10:26:55+00:00"
+    },
+    {
+      "id": "GD0011",
+      "member_id": "TV001",
+      "amount_vnd": 1000000000,
+      "category": "Siêu thị",
+      "cashback_vnd": 10000000,
+      "points": 100000,
+      "status": "approved",
+      "refunded": false,
+      "created_at": "2026-10-13T10:27:15+00:00"
+    },
+    {
+      "id": "GD0012",
+      "member_id": "TV001",
+      "amount_vnd": 100000,
+      "category": "Siêu thị",
+      "cashback_vnd": 1000,
+      "points": 10,
+      "status": "approved",
+      "refunded": false,
+      "created_at": "2026-10-13T12:13:14+00:00"
+    },
+    {
+      "id": "GD0013",
+      "member_id": "TV001",
+      "amount_vnd": 100000,
+      "category": "Siêu thị",
+      "cashback_vnd": 1000,
+      "points": 10,
+      "status": "approved",
+      "refunded": false,
+      "created_at": "2026-10-13T12:13:40+00:00"
+    },
+    {
+      "id": "GD0014",
+      "member_id": "TV001",
+      "amount_vnd": 100000,
+      "category": "Siêu thị",
+      "cashback_vnd": 1000,
+      "points": 10,
+      "status": "approved",
+      "refunded": false,
+      "created_at": "2026-10-13T12:14:06+00:00"
+    },
+    {
+      "id": "GD0015",
+      "member_id": "TV001",
+      "amount_vnd": 81000,
+      "category": "Siêu thị",
+      "cashback_vnd": 810,
+      "points": 8,
+      "status": "approved",
+      "refunded": false,
+      "created_at": "2026-10-13T12:28:09+00:00"
+    },
+    {
+      "id": "GD0016",
+      "member_id": "TV001",
+      "amount_vnd": 6000000,
+      "category": "Siêu thị",
+      "cashback_vnd": 60000,
+      "points": 600,
+      "status": "approved",
+      "refunded": false,
+      "created_at": "2026-10-13T12:29:07+00:00"
+    }
+  ],
+  "redemptions": [
+    {
+      "id": "HT0001",
+      "member_id": "TV005",
+      "points": 100,
+      "value_vnd": 10000,
+      "created_at": "2026-10-12T09:00:00+00:00"
+    },
+    {
+      "id": "HT0002",
+      "member_id": "TV001",
+      "points": 200,
+      "value_vnd": 20000,
+      "created_at": "2026-10-13T12:11:30+00:00"
+    },
+    {
+      "id": "HT0003",
+      "member_id": "TV001",
+      "points": 500,
+      "value_vnd": 50000,
+      "created_at": "2026-10-13T12:11:44+00:00"
+    },
+    {
+      "id": "HT0004",
+      "member_id": "TV001",
+      "points": 1000,
+      "value_vnd": 100000,
+      "created_at": "2026-10-13T12:11:58+00:00"
+    },
+    {
+      "id": "HT0005",
+      "member_id": "TV001",
+      "points": 100,
+      "value_vnd": 10000,
+      "created_at": "2026-10-13T12:12:09+00:00"
+    },
+    {
+      "id": "HT0006",
+      "member_id": "TV001",
+      "points": 800,
+      "value_vnd": 80000,
+      "created_at": "2026-10-13T12:12:26+00:00"
+    }
+  ]
+}
