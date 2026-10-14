@@ -1,0 +1,22 @@
+{
+  "members": [
+    {"id": "TV001", "name": "Nguyễn An", "tier": "Bạc"},
+    {"id": "TV002", "name": "Trần Bình", "tier": "Vàng"},
+    {"id": "TV003", "name": "Lê Chi", "tier": "Bạc"},
+    {"id": "TV004", "name": "Phạm Duy", "tier": "Thành viên"},
+    {"id": "TV005", "name": "Võ Hà", "tier": "Vàng"}
+  ],
+  "transactions": [
+    {"id": "GD0001", "member_id": "TV001", "amount_vnd": 1250000, "category": "Siêu thị", "cashback_vnd": 12500, "points": 125, "status": "approved", "refunded": false, "created_at": "2026-10-10T08:30:00+00:00"},
+    {"id": "GD0002", "member_id": "TV002", "amount_vnd": 735000, "category": "Ăn uống", "cashback_vnd": 7350, "points": 73, "status": "approved", "refunded": false, "created_at": "2026-10-10T09:15:00+00:00"},
+    {"id": "GD0003", "member_id": "TV003", "amount_vnd": 4900000, "category": "Du lịch", "cashback_vnd": 49000, "points": 490, "status": "approved", "refunded": false, "created_at": "2026-10-10T10:00:00+00:00"},
+    {"id": "GD0004", "member_id": "TV004", "amount_vnd": 6250000, "category": "Điện tử", "cashback_vnd": 62500, "points": 625, "status": "pending", "refunded": false, "created_at": "2026-10-11T11:20:00+00:00"},
+    {"id": "GD0005", "member_id": "TV005", "amount_vnd": 2180000, "category": "Siêu thị", "cashback_vnd": 21800, "points": 218, "status": "approved", "refunded": false, "created_at": "2026-10-11T12:10:00+00:00"},
+    {"id": "GD0006", "member_id": "TV001", "amount_vnd": 500000, "category": "Di chuyển", "cashback_vnd": 5000, "points": 50, "status": "approved", "refunded": false, "created_at": "2026-10-12T07:45:00+00:00"},
+    {"id": "GD0007", "member_id": "TV002", "amount_vnd": 9900000, "category": "Nội thất", "cashback_vnd": 99000, "points": 990, "status": "pending", "refunded": false, "created_at": "2026-10-12T14:05:00+00:00"},
+    {"id": "GD0008", "member_id": "TV003", "amount_vnd": 1380000, "category": "Nhà thuốc", "cashback_vnd": 13800, "points": 138, "status": "approved", "refunded": false, "created_at": "2026-10-13T08:00:00+00:00"}
+  ],
+  "redemptions": [
+    {"id": "HT0001", "member_id": "TV005", "points": 100, "value_vnd": 10000, "created_at": "2026-10-12T09:00:00+00:00"}
+  ]
+}

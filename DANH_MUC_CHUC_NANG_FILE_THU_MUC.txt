@@ -1,0 +1,148 @@
+DANH MỤC CHỨC NĂNG FILE VÀ THƯ MỤC - REWARDS_APP
+=================================================
+
+Phiên bản: 1.0
+Phạm vi: Liệt kê các file và thư mục hiện có trong rewards_app.
+Loại trừ: Các file/thư mục venv và __pycache__ (bytecode Python tự sinh,
+không phải mã nguồn của ứng dụng).
+
+
+1. THƯ MỤC GỐC: rewards_app\
+---------------------------
+
+Thư mục gốc chứa mã nguồn backend Python, giao diện web, dữ liệu JSON,
+notebook, tài liệu, kiểm thử và cấu hình triển khai cho demo RewaPay.
+
+  .gitignore
+    Khai báo các file/thư mục không nên đưa vào Git: __pycache__, file
+    bytecode Python (*.pyc, *.pyo, *.pyd) và data\store.json là dữ liệu
+    làm việc có thể thay đổi khi chạy ứng dụng.
+
+  app.py
+    Điểm khởi chạy backend web. Dùng HTTP server Python tích hợp, phục vụ
+    trang HTML, CSS, JavaScript, ảnh và logo; đọc request JSON; chuyển các
+    yêu cầu API đến RewardsBook trong rewards.py. Các chức năng API gồm xem
+    trạng thái, xem/tìm/sắp xếp giao dịch, tạo giao dịch, duyệt FIFO/ưu tiên,
+    đổi điểm, hoàn giao dịch và hoàn tác. Mặc định server chạy trên
+    127.0.0.1:8000; HOST và PORT có thể được cấu hình bằng biến môi trường.
+
+  rewards.py
+    Module nghiệp vụ chính của ứng dụng web. Chứa các hằng số và quy tắc
+    cashback/điểm, kiểm tra dữ liệu đầu vào, đọc và ghi trạng thái JSON,
+    quản lý hội viên/giao dịch/đổi điểm, tra cứu theo mã, sắp xếp, hàng đợi
+    duyệt, heap ưu tiên, hoàn tác, đổi điểm và hoàn giao dịch. Đây cũng là
+    nơi cài đặt các hàm merge sort, insertion sort và selection sort.
+
+  benchmarks.py
+    Chương trình tạo dữ liệu giao dịch giả lập và đo thời gian các thao tác
+    insertion sort, selection sort, merge sort, sort có sẵn của Python, tìm
+    tuyến tính và tra cứu dict. Kết quả giúp so sánh hiệu năng; không tham gia
+    vào luồng chạy của web app.
+
+  HeThong_HoanTien_DiemThuong.ipynb
+    Notebook Python độc lập để chạy trên Jupyter hoặc Google Colab. Chứa
+    phân tích bài toán, code mô phỏng sổ thưởng, dữ liệu demo, dashboard,
+    tra cứu/sắp xếp, hàng đợi FIFO và heap, các thao tác đổi/hoàn/hoàn tác,
+    kiểm tra và benchmark.
+
+  BAO_CAO.md
+    Báo cáo đồ án: giới thiệu bài toán, phạm vi, dữ liệu, yêu cầu, lựa chọn
+    cấu trúc dữ liệu, phân tích độ phức tạp và giải thuật, thiết kế, kiểm thử,
+    kết quả, giới hạn và hướng phát triển.
+
+  PRESENTATION.md
+    Nội dung và kịch bản thuyết trình theo từng slide, gồm lời dẫn, thời
+    lượng, nội dung demo trực tiếp và các ý chính cần trình bày.
+
+  GIAI_THICH_CAU_TRUC_DU_LIEU_VA_GIAI_THUAT.md
+    Tài liệu độc lập giải thích các cấu trúc và thuật toán trong ứng dụng,
+    có trích đoạn code và tóm tắt mục đích/độ phức tạp.
+
+  README.md
+    Hướng dẫn sử dụng và chạy project; giới thiệu notebook, các chức năng,
+    quy tắc nghiệp vụ, cấu trúc thư mục, kiểm thử và các API nội bộ.
+
+  render.yaml
+    Cấu hình dịch vụ web cho Render: chọn runtime Python, lệnh khởi động
+    app.py, đường dẫn health check và biến HOST để bind ra 0.0.0.0 trên môi
+    trường host.
+
+  Logo.png
+    File logo RewaPay được giao diện tham chiếu tại /Logo.png và app.py phục
+    vụ cho trình duyệt.
+
+  background.jpg
+    Ảnh nền nằm ở thư mục gốc. Backend hiện phục vụ ảnh nền cho giao diện từ
+    static\background.jpg; file gốc là tài nguyên riêng/bản sao trong project
+    và không được route hiện tại trong app.py tham chiếu trực tiếp.
+
+
+2. THƯ MỤC data\
+----------------
+
+Chứa các file JSON đầu vào và trạng thái làm việc của ứng dụng.
+
+  sample_data.json
+    Dữ liệu demo ban đầu do project cung cấp, gồm danh sách hội viên, giao
+    dịch và phiếu đổi điểm giả lập. Khi chưa có store.json, app.py/rewards.py
+    dùng dữ liệu mẫu để khởi tạo sổ dữ liệu.
+
+  store.json
+    Trạng thái làm việc đang được RewardsBook đọc/ghi. Các giao dịch, lần
+    đổi điểm, trạng thái duyệt và hoàn được lưu tại đây để còn tồn tại sau
+    khi khởi động lại. File này có thể thay đổi trong quá trình sử dụng và
+    được .gitignore bỏ qua; sample_data.json vẫn là bộ dữ liệu mẫu gốc.
+
+
+3. THƯ MỤC static\
+------------------
+
+Chứa các tài nguyên frontend được trình duyệt tải về từ backend.
+
+  index.html
+    Khung HTML của trang RewaPay bằng tiếng Việt: thanh điều hướng, tổng
+    quan, thống kê, bảng giao dịch, hàng chờ duyệt, danh sách hội viên,
+    form ghi nhận giao dịch/đổi điểm và cửa sổ chat mô phỏng. Khai báo các
+    điểm gắn (id) để app.js cập nhật giao diện.
+
+  styles.css
+    Định nghĩa màu sắc, bố cục, font, kích thước, trạng thái và responsive
+    cho các thành phần giao diện. File này cũng gắn static\background.jpg làm
+    ảnh nền.
+
+  app.js
+    Logic frontend: gọi API backend, hiển thị thống kê/giao dịch/hội viên,
+    lọc và sắp xếp, gửi form giao dịch và đổi điểm, duyệt FIFO/ưu tiên,
+    hoàn giao dịch, hoàn tác, thông báo lỗi/thành công, điều khiển sidebar
+    và chat mô phỏng.
+
+  background.jpg
+    Ảnh nền được styles.css sử dụng bằng đường dẫn /static/background.jpg;
+    app.py phục vụ file này cho trình duyệt.
+
+
+4. THƯ MỤC tests\
+-----------------
+
+Chứa kiểm thử tự động cho logic nghiệp vụ trong rewards.py.
+
+  test_rewards.py
+    Bộ unittest tạo RewardsBook với dữ liệu cô lập trong thư mục tạm. Kiểm
+    tra tính cashback/điểm, ngưỡng chờ duyệt, FIFO/heap, merge/insertion/
+    selection sort, tra cứu, đổi điểm, hoàn giao dịch, hoàn tác, đọc ghi JSON
+    và từ chối đầu vào không hợp lệ.
+
+
+5. THƯ MỤC/FILE ĐƯỢC LOẠI TRỪ
+-----------------------------
+
+  venv hoặc .venv
+    Môi trường Python ảo và các gói phụ thuộc cài đặt cho môi trường đó.
+    Không liệt kê các file bên trong vì được yêu cầu loại trừ.
+
+  __pycache__\
+    Thư mục bytecode/cache Python tự động sinh ra khi chạy/import module.
+    Không phải mã nguồn và được loại khỏi danh mục chi tiết này.
+
+=================================================
+Hết danh mục.
