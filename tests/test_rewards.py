@@ -138,7 +138,10 @@ class RewardsBookTests(unittest.TestCase):
     def test_refund_is_blocked_after_awarded_points_are_spent(self):
         transaction = self.book.add_transaction("TV001", 1_000_000, "Siêu thị")
         self.book.redeem_points("TV001", 100)
-        with self.assertRaisesRegex(RewardsError, "đã sử dụng"):
+        with self.assertRaisesRegex(
+            RewardsError,
+            "(?i)số dư điểm của khách nhỏ hơn số điểm cần hoàn",
+        ):
             self.book.refund_transaction(transaction["id"])
 
     def test_undo_restores_previous_state_and_persists_it(self):

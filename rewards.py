@@ -372,7 +372,7 @@ class RewardsBook:
             < 0
         ):
             raise RewardsError(
-                "Không thể hoàn: hội viên đã sử dụng số điểm từ giao dịch này."
+                "Không thể hoàn: số dư điểm của khách nhỏ hơn số điểm cần hoàn."
             )
         candidate = deepcopy(self.data)
         next(item for item in candidate["transactions"] if item["id"] == normalized_id)[

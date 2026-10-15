@@ -72,10 +72,20 @@ rewards_app/
 │   ├── index.html
 │   ├── styles.css
 │   ├── app.js
-│   └── background.jpg    # Ảnh nền chính
+│   ├── background.jpg    # Ảnh nền chính
+│   └── mascots/
+│       ├── bunny-directions.webp
+│       ├── bunny-reactions.webp
+│       └── LICENSE.txt   # Giấy phép của bộ ảnh mascot
 └── tests/
     └── test_rewards.py
 ```
+
+Ứng dụng mở đầu bằng màn hình giới thiệu RewaPay; nhấn **Khám phá RewaPay** để
+vào dashboard. Linh vật thỏ ở màn hình này được dựng bằng HTML/CSS/JavaScript
+thuần, không cần React hay cài thêm npm package. Hai sprite sheet nằm trong
+`static/mascots/`; giấy phép MIT và thông tin bản quyền của bộ mascot được lưu
+cùng thư mục.
 
 ## Kiểm thử
 

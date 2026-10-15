@@ -10,7 +10,33 @@
     <script src="/static/app.js" defer></script>
   </head>
   <body>
-    <div class="app-shell">
+    <section class="landing-intro" id="landing-intro" aria-labelledby="landing-title">
+      <a class="landing-brand" href="/" aria-label="RewaPay — Mỗi giao dịch, thêm giá trị">
+        <img src="/Logo.png" alt="RewaPay">
+      </a>
+      <div class="landing-content">
+        <p class="landing-eyebrow"><span></span> NỀN TẢNG QUẢN LÝ ĐIỂM THƯỞNG</p>
+        <h1 id="landing-title">Mỗi giao dịch,<br><span>thêm giá trị.</span></h1>
+        <p class="landing-description">
+          Theo dõi hoàn tiền, tích lũy điểm và quản lý giao dịch hội viên — gọn gàng trong một nơi.
+        </p>
+        <button class="landing-cta" id="enter-app-button" type="button">
+          <span>Khám phá RewaPay</span>
+          <span class="landing-cta-icon" aria-hidden="true">→</span>
+        </button>
+        <p class="landing-caption">Bản mô phỏng học thuật · Không kết nối ngân hàng</p>
+      </div>
+      <button class="page-mascot landing-mascot" id="page-mascot" type="button" aria-label="Chạm vào linh vật thỏ RewaPay" title="Chạm vào thỏ nhé!">
+        <span class="page-mascot-bounce">
+          <span class="page-mascot-sheet page-mascot-directions"></span>
+          <span class="page-mascot-sheet page-mascot-reactions"></span>
+        </span>
+      </button>
+      <span class="landing-decoration landing-decoration-one" aria-hidden="true"></span>
+      <span class="landing-decoration landing-decoration-two" aria-hidden="true"></span>
+    </section>
+
+    <div class="app-shell" id="app-shell" hidden>
       <aside class="sidebar" id="sidebar">
         <a class="brand" href="/" aria-label="RewaPay — Mỗi giao dịch - Thêm giá trị">
           <img class="brand-logo" src="/Logo.png" alt="RewaPay — Mỗi giao dịch - Thêm giá trị">
@@ -58,6 +84,12 @@
             <p class="intro-copy">Theo dõi giao dịch, xử lý hoàn tiền và chăm sóc hội viên — tất cả trong một nơi.</p>
           </div>
           <div class="intro-actions">
+            <button class="page-mascot" id="dashboard-mascot" type="button" aria-label="Chạm vào linh vật thỏ RewaPay" title="Chạm vào thỏ nhé!">
+              <span class="page-mascot-bounce">
+                <span class="page-mascot-sheet page-mascot-directions"></span>
+                <span class="page-mascot-sheet page-mascot-reactions"></span>
+              </span>
+            </button>
             <button class="primary-button" type="button" id="new-transaction-button"><span>＋</span> Ghi nhận giao dịch</button>
           </div>
         </section>
@@ -174,7 +206,7 @@
         <footer class="page-footer"><span>Điểm Thưởng <b>·</b> Đồ án Cấu trúc dữ liệu tài chính & Giải thuật</span><span>Python · Không phụ thuộc bên thứ ba</span></footer>
       </main>
     </div>
-    <section class="chat-widget" aria-label="Chat hỗ trợ mô phỏng">
+    <section class="chat-widget" id="chat-widget" aria-label="Chat hỗ trợ mô phỏng" hidden>
       <section class="chat-panel" id="chat-panel" aria-labelledby="chat-title" hidden>
         <header class="chat-header">
           <button class="chat-back" id="chat-back" type="button" aria-label="Quay lại danh sách khách hàng" hidden>‹</button>

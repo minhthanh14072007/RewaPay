@@ -10,6 +10,129 @@ let state;
 let displayTransactions = [];
 let toastTimer;
 
+const mascotDirections = [
+  "up-left", "up", "up-right",
+  "left", "center", "right",
+  "down-left", "down", "down-right",
+];
+const mascotReactions = [
+  "blink", "heart", "sparkle",
+  "surprised", "wink", "bashful",
+  "sleepy", "dizzy", "delighted",
+];
+const mascotClockwise = [
+  "right", "down-right", "down", "down-left",
+  "left", "up-left", "up", "up-right",
+];
+const mascotPayoffs = ["heart", "sparkle", "delighted"];
+const landingIntro = byId("landing-intro");
+
+byId("enter-app-button").addEventListener("click", () => {
+  const appShell = byId("app-shell");
+  const chatWidget = byId("chat-widget");
+  const mainContent = document.querySelector(".main-content");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  landingIntro.classList.add("is-leaving");
+  landingIntro.setAttribute("aria-hidden", "true");
+  appShell.hidden = false;
+  chatWidget.hidden = false;
+  mainContent.setAttribute("tabindex", "-1");
+  mainContent.focus({ preventScroll: true });
+
+  window.setTimeout(() => {
+    landingIntro.hidden = true;
+  }, reducedMotion ? 0 : 340);
+});
+
+function setMascotCell(layer, cells, name) {
+  const index = cells.indexOf(name);
+  if (index < 0) return;
+  layer.style.backgroundPosition = `${(index % 3) * 50}% ${Math.floor(index / 3) * 50}%`;
+}
+
+function initializeMascot(button) {
+  const bounce = button.querySelector(".page-mascot-bounce");
+  const directionLayer = button.querySelector(".page-mascot-directions");
+  const reactionLayer = button.querySelector(".page-mascot-reactions");
+  let reactionTimerIds = [];
+  let boopCount = 0;
+  let lastBoopAt = 0;
+  let sector = -1;
+
+  const setReaction = (reaction) => {
+    const active = reaction !== null;
+    setMascotCell(reactionLayer, mascotReactions, reaction || "blink");
+    reactionLayer.classList.toggle("is-active", active);
+    directionLayer.classList.toggle("is-inactive", active);
+  };
+
+  const aim = (pointer) => {
+    const bounds = button.getBoundingClientRect();
+    const dx = pointer.x - (bounds.left + bounds.width / 2);
+    const dy = pointer.y - (bounds.top + bounds.height / 2);
+    if (Math.hypot(dx, dy) < 70) {
+      sector = -1;
+      setMascotCell(directionLayer, mascotDirections, "center");
+      return;
+    }
+    const angle = Math.atan2(dy, dx);
+    const sectorSize = Math.PI / 4;
+    if (sector !== -1) {
+      const angleFromCurrent = angle - sector * sectorSize;
+      const wrappedAngle = Math.atan2(Math.sin(angleFromCurrent), Math.cos(angleFromCurrent));
+      if (Math.abs(wrappedAngle) < sectorSize / 2 + 0.12) return;
+    }
+    sector = (Math.round(angle / sectorSize) + mascotClockwise.length) % mascotClockwise.length;
+    setMascotCell(directionLayer, mascotDirections, mascotClockwise[sector]);
+  };
+
+  setMascotCell(directionLayer, mascotDirections, "center");
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    let pointer = null;
+    window.addEventListener("pointermove", (event) => {
+      pointer = { x: event.clientX, y: event.clientY };
+      aim(pointer);
+    }, { passive: true });
+    window.addEventListener("scroll", () => {
+      if (pointer) aim(pointer);
+    }, { passive: true });
+  }
+
+  button.addEventListener("click", () => {
+    reactionTimerIds.forEach(clearTimeout);
+    reactionTimerIds = [];
+    const scheduleReaction = (delay, reaction) => {
+      reactionTimerIds.push(setTimeout(() => setReaction(reaction), delay));
+    };
+    const now = Date.now();
+    boopCount = now - lastBoopAt < 1600 ? boopCount + 1 : 1;
+    lastBoopAt = now;
+
+    if (boopCount >= 4) {
+      boopCount = 0;
+      setReaction("dizzy");
+      scheduleReaction(1100, null);
+    } else {
+      setReaction("blink");
+      scheduleReaction(120, mascotPayoffs[(boopCount - 1) % mascotPayoffs.length]);
+      scheduleReaction(560, null);
+    }
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      bounce.animate([
+        { transform: "scale(1, 1)", easing: "ease-in" },
+        { transform: "scale(1.10, 0.86)", offset: 0.18, easing: "ease-out" },
+        { transform: "scale(0.95, 1.08)", offset: 0.45, easing: "ease-in-out" },
+        { transform: "scale(1.03, 0.97)", offset: 0.72, easing: "ease-in-out" },
+        { transform: "scale(1, 1)" },
+      ], { duration: 420, easing: "linear" });
+    }
+  });
+}
+
+document.querySelectorAll(".page-mascot").forEach(initializeMascot);
+
 async function request(url, options = {}) {
   const response = await fetch(url, options);
   let payload;
@@ -29,7 +152,7 @@ function showToast(message, isError = false) {
   toast.style.borderColor = isError ? "#f0d4d0" : "#d5e9da";
   toast.classList.add("show");
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove("show"), 3200);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 2500);
 }
 
 function makeCell(text, className = "") {

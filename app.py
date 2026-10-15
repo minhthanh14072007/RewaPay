@@ -86,6 +86,16 @@ class RewardsHandler(BaseHTTPRequestHandler):
                 ROOT / "static" / "background.jpg",
                 "image/jpeg",
             )
+        elif route == "/static/mascots/bunny-directions.webp":
+            self._send_file(
+                ROOT / "static" / "mascots" / "bunny-directions.webp",
+                "image/webp",
+            )
+        elif route == "/static/mascots/bunny-reactions.webp":
+            self._send_file(
+                ROOT / "static" / "mascots" / "bunny-reactions.webp",
+                "image/webp",
+            )
         elif route == "/Logo.png":
             self._send_file(
                 ROOT / "Logo.png",

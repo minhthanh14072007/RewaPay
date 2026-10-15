@@ -113,12 +113,27 @@ Chứa các tài nguyên frontend được trình duyệt tải về từ backen
   app.js
     Logic frontend: gọi API backend, hiển thị thống kê/giao dịch/hội viên,
     lọc và sắp xếp, gửi form giao dịch và đổi điểm, duyệt FIFO/ưu tiên,
-    hoàn giao dịch, hoàn tác, thông báo lỗi/thành công, điều khiển sidebar
-    và chat mô phỏng.
+    hoàn giao dịch, hoàn tác, thông báo lỗi/thành công, điều khiển sidebar,
+    chat mô phỏng và linh vật tương tác theo vị trí con trỏ.
 
   background.jpg
     Ảnh nền được styles.css sử dụng bằng đường dẫn /static/background.jpg;
     app.py phục vụ file này cho trình duyệt.
+
+  mascots\
+    Chứa sprite sheet và thông tin giấy phép của linh vật thỏ. app.py phục
+    vụ hai ảnh WebP bằng các route tĩnh riêng.
+
+    bunny-directions.webp
+      Sprite sheet 3x3 các hướng nhìn của thỏ; app.js chọn khung hình theo
+      hướng con trỏ trên màn hình.
+
+    bunny-reactions.webp
+      Sprite sheet 3x3 các biểu cảm; app.js hiển thị chớp mắt/phản ứng khi
+      người dùng bấm vào linh vật.
+
+    LICENSE.txt
+      Bản quyền và giấy phép MIT của bộ ảnh mascot bên thứ ba.
 
 
 4. THƯ MỤC tests\
