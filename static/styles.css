@@ -295,7 +295,7 @@ tbody tr:last-child td { border-bottom: 0; }
 .landing-cta:focus-visible { outline: 3px solid #491227; outline-offset: 4px; }
 .landing-cta-icon { display: grid; width: 32px; height: 32px; place-items: center; border-radius: 9px; background: rgba(255, 255, 255, .16); font-size: 20px; }
 .landing-caption { margin: 20px 0 0; color: #806c73; font-size: 10px; letter-spacing: .15px; }
-.landing-mascot.page-mascot { position: absolute; z-index: 1; bottom: -108px; left: clamp(-68px, -3vw, -12px); width: clamp(420px, 52vw, 700px); height: clamp(420px, 52vw, 700px); }
+.landing-mascot.page-mascot { position: absolute; z-index: 1; bottom: -108px; left: calc((100% - clamp(32px, 8vw, 124px) - clamp(0px, 3vw, 42px) - 520px - clamp(420px, 52vw, 700px)) / 2); width: clamp(420px, 52vw, 700px); height: clamp(420px, 52vw, 700px); }
 .landing-decoration { position: absolute; z-index: -1; display: block; border: 1px solid rgba(255, 255, 255, .25); border-radius: 50%; pointer-events: none; }
 .landing-decoration-one { right: 42%; bottom: -230px; width: 430px; height: 430px; }
 .landing-decoration-two { top: 12%; right: 3%; width: 120px; height: 120px; }
@@ -338,7 +338,7 @@ tbody tr:last-child td { border-bottom: 0; }
   .landing-content h1 { font-size: clamp(40px, 5vw, 48px); letter-spacing: -1.8px; }
   .landing-description { margin: 15px 0 22px; font-size: 13px; }
   .landing-brand { width: clamp(160px, 19vw, 190px); }
-  .landing-mascot.page-mascot { bottom: -96px; left: -58px; width: clamp(360px, 48vw, 480px); height: clamp(360px, 48vw, 480px); }
+  .landing-mascot.page-mascot { bottom: -96px; left: calc((100% - clamp(28px, 5vw, 50px) - 430px - clamp(360px, 48vw, 480px)) / 2); width: clamp(360px, 48vw, 480px); height: clamp(360px, 48vw, 480px); }
 }
 @media (max-width: 620px) {
   body { background-attachment: scroll; }
